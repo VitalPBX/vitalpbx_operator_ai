@@ -69,13 +69,17 @@ If you want to add more languages, you must modify the scripts<br>
 
 Below we show an example of how you should use the script to record the prompt.
 <pre>
-./record-prompt.py wait-en "Just a moment, please. We're fetching the information for you." "en-US"
-./record-prompt.py welcome-en "Welcome to the Artificial intelligence Assistant. Please ask your question after the tone." "en-US"
-./record-prompt.py short-message-en "Your question is too short. Please provide more details." "en-US"
-./record-prompt.py anything-else-en "Can I assist you with anything else?" "en-US"  
-./record-prompt.py wait-es "Un momento, por favor. Estamos buscando la información para ti." "es-ES"
-./record-prompt.py welcome-es "Bienvenido al Asistente de Inteligencia Artificial, Haga su pregunta después del tono." "es-ES"
-./record-prompt.py short-message-es "Tu pregunta es demasiado corta. Por favor, proporciona más detalles." "es-ES"
-./record-prompt.py anything-else-es "¿Hay algo más en lo que pueda ayudarte?" "es-ES"  
+./record-prompt.py op_ai_welcome-en "I am your AI Operator, after hearing the tone, could you please tell me the name of the person or the area you wish to communicate with?" "en-US"
+./record-prompt.py op_ai_wait-en "Please wait while I search for the extension number." "en-US"
+./record-prompt.py op_ai_transfer-en "Thank you for your patience. We are currently transferring your call to the appropriate party. Please hold." "en-US"
+./record-prompt.py op_ai_short-message-en "Your message is too short, please try again." "en-US"
+./record-prompt.py op_ai_user_not_found-en "I'm sorry, we were unable to find the information you requested. Please try again." "en-US"
+./record-prompt.py op_ai_multiple_users-en "Multiple matches have been found, could you be more specific please." "en-US"
+./record-prompt.py op_ai_welcome-es "Soy su Operador de IA, despues de escuchar el tono, ¿podría decirme el nombre de la persona o el área con la que desea comunicarse?" "es-ES"
+./record-prompt.py op_ai_wait-es "Espere mientras busco el número de extensión." "es-ES"
+./record-prompt.py op_ai_transfer-es "Gracias por su paciencia. Actualmente estamos transfiriendo su llamada al interlocutor correspondiente. Por favor espera." "es-ES"
+./record-prompt.py op_ai_short-message-es "Tu mensaje es demasiado corto, inténtalo de nuevo." "es-ES"
+./record-prompt.py op_ai_user_not_found-es "Lo sentimos, no pudimos encontrar la información que solicitaste. Inténtalo de nuevo." "es-ES"
+./record-prompt.py op_ai_multiple_users-es "Se han encontrado varias coincidencias, ¿podría ser más específico, por favor?" "es-ES"
 </pre>
 
