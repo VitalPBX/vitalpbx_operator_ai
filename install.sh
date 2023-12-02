@@ -24,7 +24,7 @@ chmod +x /var/lib/asterisk/agi-bin/operator-ai.py
 chmod +x /var/lib/asterisk/agi-bin/record-prompt.py
 
 # Download Asterisk configuration file
-wget https://raw.githubusercontent.com/VitalPBX/vitalpbx_agent_ai_chatgpt/main/extensions__71-operator-ai.conf -P /etc/asterisk/vitalpbx/
+wget https://raw.githubusercontent.com/VitalPBX/vitalpbx_operator_ai_chatgpt/main/extensions__71-operator-ai.conf -P /etc/asterisk/vitalpbx/
 
 # Reload the Asterisk dialplan
 asterisk -rx "dialplan reload"
