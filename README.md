@@ -23,7 +23,7 @@ Project that shows how to implement an AI Operator in VitalPBX using OpenaAI Ass
 ## Install from script
 Download the script
 <pre>
-  wget https://raw.githubusercontent.com/VitalPBX/vitalpbx_agent_ai_chatgpt/main/install.sh
+  wget https://raw.githubusercontent.com/VitalPBX/vitalpbx_operator_ai_chatgpt/main/install.sh
 </pre>
 
 Give execution permissions
