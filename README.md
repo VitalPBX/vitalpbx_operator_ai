@@ -52,8 +52,7 @@ Copy the following content and add the APIS Key.
 OPENAI_API_KEY = "sk-"
 AZURE_SPEECH_KEY = ""
 AZURE_SERVICE_REGION = "eastus"
-PATH_TO_DOCUMENTS = "/var/lib/asterisk/agi-bin/docs/"
-PATH_TO_DATABASE = "/var/lib/asterisk/agi-bin/data/"
+OPENAI_ASSISTANT_ID = "asst_"
 </pre>
 
 ## Create voice guides
