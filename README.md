@@ -83,3 +83,5 @@ Below we show an example of how you should use the script to record the prompt.
 ./record-prompt.py op_ai_multiple_users-es "Se han encontrado varias coincidencias, ¿podría ser más específico, por favor?" "es-ES"
 </pre>
 
+## Testing call from VitalPBX
+To ask ChatGPT questions: Dial *885 for English or *886 for Spanish<br>
