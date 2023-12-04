@@ -130,7 +130,7 @@ def main():
             if len(extensions) == 1:
                 extension_number = extensions[0]
                 agi.verbose("EXTENSION NUMBER: " + extension_number,2)
-                # Thank you for your patience. We are currently transferring your call to the appropriate party. Please hold.
+                # Transferring your call, please hold.
                 agi.appexec('MP3Player', transfer_message)
                 # Priority to use
                 priority = "1"
