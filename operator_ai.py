@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
+import time
 import os
 import sys
-import time
 from dotenv import load_dotenv
 import openai
 from openai import OpenAI
@@ -50,11 +50,6 @@ else:
     short_message = "/var/lib/asterisk/sounds/op_ai_short-message-en.mp3"
     user_not_found = "/var/lib/asterisk/sounds/op_ai_user_not_found-en.mp3"
     multiple_users = "/var/lib/asterisk/sounds/op_ai_multiple_users-en.mp3"
-
-if tts_engine == "Azure":
-    tts_engine = "Azure"
-else:
-    tts_engine = "OpenAI"
 
 # Files can also be added to a Message in a Thread. These files are only accessible within this specific thread.
 # After having uploaded a file, you can pass the ID of this File when creating the Message.
@@ -131,33 +126,22 @@ def main():
             response_agi = response.replace('\n', ' ')
             agi.verbose("OPERATOR AI RESPONSE: " + response_agi,2)
 
-            r_pattern = "</tel>"
-            # Find all matches
-            matches = re.findall(r_pattern, response_agi)
-
-            # Check if the pattern repeats more than once
-            if len(matches) > 1:
-                # Multiple matches have been found, could you be more specific please.
-                agi.appexec('MP3Player', multiple_users)
-                sys.exit(1)
-
-            tel_pattern = "<tel>(.*?)</tel>"
-            extension = re.search(tel_pattern, response)
-
-            if extension: # Transfer the Call
-                extension_number = extension.group(1)
+            extensions = re.findall(r'\d+', response_agi)
+            if len(extensions) == 1:
+                extension_number = extensions[0]
                 agi.verbose("EXTENSION NUMBER: " + extension_number,2)
-                
                 # Thank you for your patience. We are currently transferring your call to the appropriate party. Please hold.
                 agi.appexec('MP3Player', transfer_message)
-
                 # Priority to use
                 priority = "1"
                 # Make the transfer
                 agi.set_context(context)
                 agi.set_extension(extension_number)
                 agi.set_priority(priority)
-
+            elif len(extensions) > 1:
+                # Multiple matches have been found, could you be more specific please.
+                agi.appexec('MP3Player', multiple_users)
+                sys.exit(1)
             else: # Ask Again
                 agi.verbose("Extension number not found.")
                 # I'm sorry, we were unable to find the information you requested. Please try again.
