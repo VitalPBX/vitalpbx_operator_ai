@@ -90,7 +90,9 @@ def main():
             #DEBUG
             agi.verbose("AUDIO TRANSCRIPT: " + chatgpt_question_agi,2)
 
-            extensions_in_answer = re.findall(r'\d+', chatgpt_question_agi)
+            extensions_answer = ''.join(['' if c in [' ', '.'] else c for c in chatgpt_question_agi])
+            extensions_in_answer = re.findall(r'\d+', extensions_answer)
+            # If the user mentions a number in the question, it transfers them to that number immediately.
             if len(extensions_in_answer) >= 1:
                 extension_number = extensions_in_answer[0]
                 agi.verbose("EXTENSION NUMBER: " + extension_number,2)
