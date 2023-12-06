@@ -90,6 +90,20 @@ def main():
             #DEBUG
             agi.verbose("AUDIO TRANSCRIPT: " + chatgpt_question_agi,2)
 
+            extensions_in_answer = re.findall(r'\d+', chatgpt_question_agi)
+            if len(extensions_in_answer) >= 1:
+                extension_number = extensions_in_answer[0]
+                agi.verbose("EXTENSION NUMBER: " + extension_number,2)
+                # Transferring your call, please hold.
+                agi.appexec('MP3Player', transfer_message)
+                # Priority to use
+                priority = "1"
+                # Make the transfer
+                agi.set_context(context)
+                agi.set_extension(extension_number)
+                agi.set_priority(priority)
+                sys.exit(1)
+
             message = client.beta.threads.messages.create(
                 thread_id=thread.id,
                 role="user",
@@ -127,7 +141,7 @@ def main():
             agi.verbose("OPERATOR AI RESPONSE: " + response_agi,2)
 
             extensions = re.findall(r'\d+', response_agi)
-            if len(extensions) == 1:
+            if len(extensions) >= 1:
                 extension_number = extensions[0]
                 agi.verbose("EXTENSION NUMBER: " + extension_number,2)
                 # Transferring your call, please hold.
@@ -138,9 +152,6 @@ def main():
                 agi.set_context(context)
                 agi.set_extension(extension_number)
                 agi.set_priority(priority)
-            elif len(extensions) > 1:
-                # Multiple matches have been found, could you be more specific please.
-                agi.appexec('MP3Player', multiple_users)
                 sys.exit(1)
             else: # Ask Again
                 agi.verbose("Extension number not found.")
