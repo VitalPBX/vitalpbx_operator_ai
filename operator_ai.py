@@ -13,7 +13,6 @@ from asterisk.agi import *
 load_dotenv("/var/lib/asterisk/agi-bin/.env")
 OPENAI_API_KEY = os.environ.get('OPENAI_API_KEY')
 OPENAI_ASSISTANT_ID = os.environ.get('OPENAI_ASSISTANT_ID')
-OPENAI_INSTRUCTIONS = os.environ.get('OPENAI_INSTRUCTIONS')
 
 client = OpenAI()
 thread = client.beta.threads.create()
@@ -25,7 +24,7 @@ uniquedid = sys.argv[1] if len(sys.argv) > 1 else None
 context = sys.argv[2] if len(sys.argv) > 1 else None
 language = sys.argv[3] if len(sys.argv) > 1 else None
 tts_engine = sys.argv[4] if len(sys.argv) > 1 else None
-instructions = sys.argv[5] if len(sys.argv) > 1 else None
+free_dial = sys.argv[5] if len(sys.argv) > 1 else None
 
 if uniquedid is None:
     print("No filename provided for the recording.")
@@ -89,22 +88,23 @@ def main():
 
             #DEBUG
             agi.verbose("AUDIO TRANSCRIPT: " + chatgpt_question_agi,2)
-
-            extensions_answer = ''.join(['' if c in [' ', '.'] else c for c in chatgpt_question_agi])
-            extensions_in_answer = re.findall(r'\d+', extensions_answer)
-            # If the user mentions a number in the question, it transfers them to that number immediately.
-            if len(extensions_in_answer) >= 1:
-                extension_number = extensions_in_answer[0]
-                agi.verbose("EXTENSION NUMBER: " + extension_number,2)
-                # Transferring your call, please hold.
-                agi.appexec('MP3Player', transfer_message)
-                # Priority to use
-                priority = "1"
-                # Make the transfer
-                agi.set_context(context)
-                agi.set_extension(extension_number)
-                agi.set_priority(priority)
-                sys.exit(1)
+            if free_dial == 1:
+                # Remove Space and point
+                chatgpt_question_remove = ''.join(['' if c in [' ', '.'] else c for c in chatgpt_question_agi])
+                chatgpt_question_get_number = re.findall(r'\d+', chatgpt_question_remove)
+                # If the user mentions a number in the question, it transfers them to that number immediately.
+                if len(chatgpt_question_get_number) >= 1:
+                    extension_number = chatgpt_question_get_number[0]
+                    agi.verbose("EXTENSION NUMBER: " + extension_number,2)
+                    # Transferring your call, please hold.
+                    agi.appexec('MP3Player', transfer_message)
+                    # Priority to use
+                    priority = "1"
+                    # Make the transfer
+                    agi.set_context(context)
+                    agi.set_extension(extension_number)
+                    agi.set_priority(priority)
+                    sys.exit(1)
 
             message = client.beta.threads.messages.create(
                 thread_id=thread.id,
@@ -114,8 +114,7 @@ def main():
 
             run = client.beta.threads.runs.create(
                 thread_id=thread.id,
-                assistant_id=OPENAI_ASSISTANT_ID,
-                instructions=OPENAI_INSTRUCTIONS
+                assistant_id=OPENAI_ASSISTANT_ID
             )
 
             runStatus = client.beta.threads.runs.retrieve(
