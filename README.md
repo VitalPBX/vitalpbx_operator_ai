@@ -70,17 +70,15 @@ If you want to add more languages, you must modify the scripts<br>
 Below we show an example of how you should use the script to record the prompt.
 <pre>
 ./record-prompt.py op_ai_welcome-en "I am your AI Operator, after hearing the tone, could you please tell me the name of the person or the area you wish to communicate with?" "en-US"
-./record-prompt.py op_ai_wait-en "Please wait while I search for the extension number." "en-US"
+./record-prompt.py op_ai_wait-en "Wait a moment please." "en-US"
 ./record-prompt.py op_ai_transfer-en "Transferring your call, please hold." "en-US"
 ./record-prompt.py op_ai_short-message-en "Your message is too short, please try again." "en-US"
 ./record-prompt.py op_ai_user_not_found-en "I'm sorry, we were unable to find the information you requested. Please try again." "en-US"
-./record-prompt.py op_ai_multiple_users-en "Multiple matches have been found, could you be more specific please." "en-US"
 ./record-prompt.py op_ai_welcome-es "Soy su Operador de IA, despues de escuchar el tono, ¿podría decirme el nombre de la persona o el área con la que desea comunicarse?" "es-ES"
-./record-prompt.py op_ai_wait-es "Espere mientras busco el número de extensión." "es-ES"
+./record-prompt.py op_ai_wait-es "Espere un momento por favor." "es-ES"
 ./record-prompt.py op_ai_transfer-es "Transfiriendo su llamada, por favor espere." "es-ES"
 ./record-prompt.py op_ai_short-message-es "Tu mensaje es demasiado corto, inténtalo de nuevo." "es-ES"
 ./record-prompt.py op_ai_user_not_found-es "Lo sentimos, no pudimos encontrar la información que solicitaste. Inténtalo de nuevo." "es-ES"
-./record-prompt.py op_ai_multiple_users-es "Se han encontrado varias coincidencias, ¿podría ser más específico, por favor?" "es-ES"
 </pre>
 
 ## Testing call from VitalPBX
