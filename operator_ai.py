@@ -88,7 +88,7 @@ def main():
 
             #DEBUG
             agi.verbose("AUDIO TRANSCRIPT: " + chatgpt_question_agi,2)
-            if free_dial == 1:
+            if free_dial == "1":
                 # Remove Space and point
                 chatgpt_question_remove = ''.join(['' if c in [' ', '.'] else c for c in chatgpt_question_agi])
                 chatgpt_question_get_number = re.findall(r'\d+', chatgpt_question_remove)
