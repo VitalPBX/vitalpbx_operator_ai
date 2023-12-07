@@ -7,7 +7,7 @@ Project that shows how to implement an AI Operator in VitalPBX using OpenaAI Ass
 4.	Blog (https://github.com/VitalPBX/vitalpbx_operator_ai)
 
 ## Create OpenAI Assistants
-Log in to the OpenAI account and to the API section and in the menu on the left select Assistants<br>
+Log in to the OpenAI account and go to the API section, go to the menu on the left, select Assistants.<br>
 
 ![VitalPBX OPERATOR AI](https://github.com/VitalPBX/vitalpbx_operator_ai/blob/main/Openai_Assistants_Instructions_VitalPBX.png)
 
