@@ -3,7 +3,7 @@ Project that shows how to implement an AI Operator in VitalPBX using OpenaAI Ass
 ## Necessary Resources
 1.	OpenAI Account (https://platform.openai.com/apps).
 2.	Microsoft Azure Account (https://azure.microsoft.com/en-us/products/ai-services/text-to-speech)
-3.	VitalPBX 4
+3.	VitalPBX 4 (https://vitalpbx.com/)
 4.	Blog (https://github.com/VitalPBX/vitalpbx_operator_ai)
 
 ## Installing dependencies
