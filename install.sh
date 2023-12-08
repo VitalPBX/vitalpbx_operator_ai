@@ -17,10 +17,12 @@ cd /var/lib/asterisk/agi-bin/
 
 # Download required scripts from GitHub
 wget https://raw.githubusercontent.com/VitalPBX/vitalpbx_operator_ai/main/operator-ai.py -P /var/lib/asterisk/agi-bin/
+wget https://raw.githubusercontent.com/VitalPBX/vitalpbx_operator_ai/main/operator-ai-embedded.py -P /var/lib/asterisk/agi-bin/
 wget https://raw.githubusercontent.com/VitalPBX/vitalpbx_operator_ai/main/record-prompt.py -P /var/lib/asterisk/agi-bin/
 
 # Set execute permissions for the downloaded scripts
 chmod +x /var/lib/asterisk/agi-bin/operator-ai.py
+chmod +x /var/lib/asterisk/agi-bin/operator-ai-embedded.py
 chmod +x /var/lib/asterisk/agi-bin/record-prompt.py
 
 # Download Asterisk configuration file
