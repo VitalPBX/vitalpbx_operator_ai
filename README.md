@@ -69,7 +69,7 @@ Goto AGI directory
   cd /var/lib/asterisk/agi-bin/
 </pre>
 
-The format to record a prompt is as follows:
+The format to record a prompt is as follows:<br>
 ./record-prompt.py <strong>file-name "Text to record" language</strong><br>
 <strong>file-name</strong> --> file name if extension mp3, remember that in the Agent AI script, the welcome audio is: welcome-en (English), welcome-es (Spanish), and the wait audio is: wait-en (English), and wait-es (Spanish).<br>
 <strong>languaje</strong> --> could be "en-US" or "es-ES"<br>
