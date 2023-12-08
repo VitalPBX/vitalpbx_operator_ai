@@ -89,4 +89,4 @@ Below we show an example of how you should use the script to record the prompt.
 </pre>
 
 ## Testing call from VitalPBX
-To ask ChatGPT questions: Dial *885 for English or *886 for Spanish<br>
+Now call *885 for English or *886 for Spanish and ask to be connected to a person, or extension.<br>
